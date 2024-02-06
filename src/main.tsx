@@ -6,9 +6,9 @@ import { AppProviders } from "./AppProviders.tsx";
 async function enableMocking() {
   if (import.meta.env.MODE !== "development") return;
 
-  const { devServerWorker: worker } = await import("./mocks/browser");
+  const { devServerWorker } = await import("./mocks/browser");
 
-  return worker.start();
+  return devServerWorker.start();
 }
 
 enableMocking().then(() =>
